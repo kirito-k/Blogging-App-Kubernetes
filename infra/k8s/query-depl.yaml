@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: query-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appname: query
+  template:
+    metadata:
+      labels:
+        appname: query
+    spec:
+      containers:
+        - name: query-container
+          image: kiritok/query
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: query-cip-srv
+spec:
+  type: ClusterIP
+  selector:
+    appname: query
+  ports:
+    - name: query
+      protocol: TCP
+      port: 4002
+      targetPort: 4002

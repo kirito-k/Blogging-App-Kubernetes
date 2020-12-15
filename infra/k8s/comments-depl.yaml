@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comments-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appname: comments
+  template:
+    metadata:
+      labels:
+        appname: comments
+    spec:
+      containers:
+        - name: comments-container
+          image: kiritok/comments
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: comments-cip-srv
+spec:
+  type: ClusterIP
+  selector:
+    appname: comments
+  ports:
+    - name: comments
+      protocol: TCP
+      port: 4001
+      targetPort: 4001
