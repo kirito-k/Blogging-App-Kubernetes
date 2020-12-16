@@ -10,7 +10,7 @@ app.use(cors());
 const commentsByPostID = {};
 
 app.post("/posts/:id/comments", async (req, res) => {
-    console.log("Request for POST /posts/comments");
+    console.log(`POST /posts/${req.params.id}/comments`);
 
     const postID = req.params.id;
     const { content } = req.body;
@@ -38,4 +38,4 @@ app.post("/events", (req, res) => {
 });
 
 const port = process.env.PORT || 4001;
-app.listen(port, () => console.log(`Posts server running on port ${port}`));
+app.listen(port, () => console.log(`Comments server running on port ${port}`));

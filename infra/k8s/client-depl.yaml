@@ -22,7 +22,6 @@ kind: Service
 metadata:
   name: client-cip-srv
 spec:
-  type: ClusterIP
   selector:
     appname: client
   ports:

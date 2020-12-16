@@ -22,7 +22,6 @@ kind: Service
 metadata:
   name: posts-cip-srv
 spec:
-  type: ClusterIP
   selector:
     appname: posts
   ports:

@@ -22,7 +22,6 @@ kind: Service
 metadata:
   name: event-bus-cip-srv
 spec:
-  type: ClusterIP
   selector:
     appname: event-bus
   ports:

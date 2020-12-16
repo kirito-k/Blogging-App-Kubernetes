@@ -22,7 +22,6 @@ kind: Service
 metadata:
   name: comments-cip-srv
 spec:
-  type: ClusterIP
   selector:
     appname: comments
   ports:

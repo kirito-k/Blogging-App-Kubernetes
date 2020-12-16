@@ -22,7 +22,6 @@ kind: Service
 metadata:
   name: query-cip-srv
 spec:
-  type: ClusterIP
   selector:
     appname: query
   ports:
