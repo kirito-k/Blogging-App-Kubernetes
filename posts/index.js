@@ -9,8 +9,8 @@ app.use(cors());
 
 const posts = {};
 
-app.post("/posts", async (req, res) => {
-    console.log("Request for POST /posts");
+app.post("/posts/create", async (req, res) => {
+    console.log("Request for POST /posts/create");
 
     const randomID = randomBytes(4).toString("hex");
 

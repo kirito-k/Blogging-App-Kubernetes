@@ -8,10 +8,15 @@ app.use(cors());
 const posts = {};
 
 app.get("/posts", (req, res) => {
+    console.log(`posts: ${posts}`);
+    console.log("Request for GET /posts");
+
     res.send(posts);
 });
 
 app.post("/events", (req, res) => {
+    console.log(`Event received: ${req.body.type}`);
+
     const { type, data } = req.body;
 
     if (type === "Post Created") {
