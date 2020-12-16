@@ -9,12 +9,6 @@ app.use(cors());
 
 const commentsByPostID = {};
 
-app.get("/posts/:id/comments", (req, res) => {
-    console.log("Request for GET /posts/comments");
-
-    res.status(200).send(commentsByPostID[req.params.id] || []);
-});
-
 app.post("/posts/:id/comments", async (req, res) => {
     console.log("Request for POST /posts/comments");
 

@@ -9,16 +9,6 @@ app.use(cors());
 
 const posts = {};
 
-app.get("/posts", (req, res) => {
-    console.log("Request for GET /posts");
-
-    res.send(posts);
-});
-
-app.get("/", async (req, res) => {
-    res.send("Hello World");
-});
-
 app.post("/posts", async (req, res) => {
     console.log("Request for POST /posts");
 

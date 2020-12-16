@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appname: client
+  template:
+    metadata:
+      labels:
+        appname: client
+    spec:
+      containers:
+        - name: client-container
+          image: kiritok/client
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-cip-srv
+spec:
+  type: ClusterIP
+  selector:
+    appname: client
+  ports:
+    - name: client
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
